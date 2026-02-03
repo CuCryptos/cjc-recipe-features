@@ -1,0 +1,587 @@
+/**
+ * CJC Recipe Features - Main Styles
+ */
+
+/* ==========================================================================
+   Action Bar
+   ========================================================================== */
+
+.cjc-recipe-actions {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.cjc-recipe-actions__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* Servings Selector */
+.cjc-recipe-actions__scale {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cjc-recipe-actions__scale label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.cjc-servings-select {
+    padding: 8px 32px 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: #fff url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23495057" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 8px center;
+    background-size: 16px;
+    appearance: none;
+    cursor: pointer;
+    min-width: 70px;
+}
+
+.cjc-servings-select:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.cjc-scale-indicator {
+    font-size: 13px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Action Buttons */
+.cjc-recipe-actions__buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.cjc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cjc-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.cjc-btn:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.cjc-btn svg {
+    flex-shrink: 0;
+}
+
+/* Save button states */
+.cjc-btn--save.is-saved {
+    color: #dc3545;
+    border-color: #dc3545;
+    background: #fff5f5;
+}
+
+.cjc-btn--save.is-saved .cjc-heart-icon {
+    fill: #dc3545;
+}
+
+.cjc-btn--save.is-saved:hover {
+    background: #ffe3e6;
+}
+
+/* ==========================================================================
+   Ingredient List Styling
+   ========================================================================== */
+
+.cjc-ingredients-list {
+    position: relative;
+}
+
+.cjc-ingredient-item {
+    transition: background-color 0.2s ease;
+}
+
+.cjc-ingredient-item.is-scaled {
+    background-color: #fff9db;
+    border-radius: 3px;
+    padding-left: 4px;
+    margin-left: -4px;
+}
+
+.cjc-ingredient-amount {
+    font-weight: 600;
+    color: #2b8a3e;
+}
+
+/* ==========================================================================
+   Floating Action Button
+   ========================================================================== */
+
+.cjc-floating-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.cjc-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: #343a40;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+}
+
+.cjc-fab:hover {
+    background: #495057;
+    transform: scale(1.05);
+}
+
+.cjc-fab--main {
+    position: relative;
+    z-index: 2;
+}
+
+.cjc-fab__menu {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.cjc-floating-btn.is-open .cjc-fab__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cjc-fab__menu .cjc-fab {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    color: #343a40;
+    border: 1px solid #dee2e6;
+}
+
+.cjc-fab__menu .cjc-fab:hover {
+    background: #f8f9fa;
+}
+
+.cjc-fab--save.is-saved {
+    color: #dc3545;
+}
+
+.cjc-fab--save.is-saved .cjc-heart-icon {
+    fill: #dc3545;
+}
+
+/* ==========================================================================
+   Toast Notifications
+   ========================================================================== */
+
+#cjc-toast-container {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.cjc-toast {
+    padding: 12px 20px;
+    background: #343a40;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: cjc-toast-in 0.3s ease;
+    pointer-events: auto;
+}
+
+.cjc-toast.is-hiding {
+    animation: cjc-toast-out 0.3s ease forwards;
+}
+
+.cjc-toast--success {
+    background: #28a745;
+}
+
+.cjc-toast--error {
+    background: #dc3545;
+}
+
+@keyframes cjc-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cjc-toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ==========================================================================
+   Saved Recipes Page
+   ========================================================================== */
+
+.cjc-saved-recipes-page,
+.cjc-shopping-list-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.cjc-page-header {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.cjc-page-header h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    color: #212529;
+}
+
+.cjc-page-header p {
+    margin: 0;
+    color: #6c757d;
+}
+
+.cjc-page-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* Recipe Grid */
+.cjc-recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.cjc-recipe-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cjc-recipe-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.cjc-recipe-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.cjc-recipe-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cjc-recipe-card__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+}
+
+.cjc-recipe-card__content {
+    padding: 16px;
+}
+
+.cjc-recipe-card__title {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.cjc-recipe-card__title a {
+    color: #212529;
+    text-decoration: none;
+}
+
+.cjc-recipe-card__title a:hover {
+    color: #007bff;
+}
+
+.cjc-recipe-card__excerpt {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+.cjc-recipe-card__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cjc-recipe-card__remove {
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #dc3545;
+    background: transparent;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cjc-recipe-card__remove:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+/* Empty State */
+.cjc-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.cjc-empty-state svg {
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.cjc-empty-state h2 {
+    margin: 0 0 8px;
+    color: #495057;
+}
+
+.cjc-empty-state p {
+    margin: 0 0 24px;
+}
+
+.cjc-empty-state a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.cjc-empty-state a:hover {
+    background: #0056b3;
+}
+
+/* ==========================================================================
+   Shopping List Page
+   ========================================================================== */
+
+.cjc-shopping-list {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cjc-shopping-list__section {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.cjc-shopping-list__section:last-child {
+    border-bottom: none;
+}
+
+.cjc-shopping-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #f8f9fa;
+    cursor: pointer;
+}
+
+.cjc-shopping-list__header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #212529;
+}
+
+.cjc-shopping-list__count {
+    font-size: 13px;
+    color: #6c757d;
+    background: #e9ecef;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.cjc-shopping-list__items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.cjc-shopping-list__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f1f3f5;
+    transition: background 0.15s ease;
+}
+
+.cjc-shopping-list__item:last-child {
+    border-bottom: none;
+}
+
+.cjc-shopping-list__item:hover {
+    background: #f8f9fa;
+}
+
+.cjc-shopping-list__item.is-checked {
+    opacity: 0.6;
+}
+
+.cjc-shopping-list__item.is-checked .cjc-shopping-list__text {
+    text-decoration: line-through;
+}
+
+.cjc-shopping-list__checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #28a745;
+}
+
+.cjc-shopping-list__text {
+    flex: 1;
+    font-size: 15px;
+}
+
+.cjc-shopping-list__amount {
+    font-weight: 600;
+}
+
+.cjc-shopping-list__recipe {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.cjc-shopping-list__remove {
+    padding: 4px;
+    background: transparent;
+    border: none;
+    color: #adb5bd;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.cjc-shopping-list__item:hover .cjc-shopping-list__remove {
+    opacity: 1;
+}
+
+.cjc-shopping-list__remove:hover {
+    color: #dc3545;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .cjc-recipe-actions__row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cjc-recipe-actions__scale {
+        justify-content: center;
+    }
+
+    .cjc-recipe-actions__buttons {
+        justify-content: center;
+    }
+
+    .cjc-btn span {
+        display: none;
+    }
+
+    .cjc-btn {
+        padding: 10px 14px;
+    }
+
+    .cjc-floating-btn {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .cjc-recipe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cjc-page-actions {
+        flex-direction: column;
+    }
+
+    .cjc-page-actions .cjc-btn {
+        justify-content: center;
+    }
+
+    .cjc-page-actions .cjc-btn span {
+        display: inline;
+    }
+}

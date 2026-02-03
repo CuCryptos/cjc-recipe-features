@@ -1,0 +1,213 @@
+/**
+ * CJC Recipe Features - Print Styles
+ */
+
+@media print {
+    /* Hide non-essential elements */
+    header,
+    footer,
+    nav,
+    .site-header,
+    .site-footer,
+    .site-navigation,
+    .sidebar,
+    .widget-area,
+    .comments,
+    .comments-area,
+    .related-posts,
+    .post-navigation,
+    .pagination,
+    .social-share,
+    .author-box,
+    .advertisement,
+    .ad,
+    .ads,
+    #wpadminbar,
+    .cjc-recipe-actions,
+    .cjc-floating-btn,
+    #cjc-toast-container,
+    .wp-block-embed,
+    iframe,
+    video,
+    .screen-reader-text,
+    .skip-link,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Reset page layout */
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Main content area */
+    .site-content,
+    .content-area,
+    .entry-content,
+    article,
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+    }
+
+    /* Article title */
+    .entry-title,
+    h1.entry-title {
+        font-size: 24pt !important;
+        margin: 0 0 12pt !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    /* Headings */
+    h2 {
+        font-size: 16pt !important;
+        margin: 18pt 0 8pt !important;
+        page-break-after: avoid !important;
+    }
+
+    h3 {
+        font-size: 14pt !important;
+        margin: 14pt 0 6pt !important;
+        page-break-after: avoid !important;
+    }
+
+    h4 {
+        font-size: 12pt !important;
+        margin: 12pt 0 6pt !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Paragraphs */
+    p {
+        margin: 0 0 8pt !important;
+        orphans: 3 !important;
+        widows: 3 !important;
+    }
+
+    /* Lists - ingredients and instructions */
+    ul, ol {
+        margin: 0 0 12pt 20pt !important;
+        padding: 0 !important;
+    }
+
+    li {
+        margin: 0 0 4pt !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Ingredient lists */
+    .cjc-ingredients-list li {
+        margin-bottom: 6pt !important;
+    }
+
+    /* Featured image */
+    .wp-post-image,
+    .entry-thumbnail img,
+    .post-thumbnail img {
+        max-width: 250pt !important;
+        height: auto !important;
+        float: right !important;
+        margin: 0 0 12pt 12pt !important;
+        border: 1pt solid #ccc !important;
+    }
+
+    /* Content images */
+    .entry-content img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Hide images in paragraphs (usually decorative) */
+    .entry-content p img {
+        display: none !important;
+    }
+
+    /* Links - show URL */
+    a[href]:after {
+        content: none !important; /* Don't show URLs in print */
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    /* Tables */
+    table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        margin: 12pt 0 !important;
+    }
+
+    th, td {
+        border: 1pt solid #ccc !important;
+        padding: 6pt !important;
+        text-align: left !important;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        margin: 12pt 0 12pt 20pt !important;
+        padding: 0 0 0 12pt !important;
+        border-left: 3pt solid #ccc !important;
+        font-style: italic !important;
+    }
+
+    /* Page breaks */
+    .entry-content h2,
+    .entry-content h3 {
+        page-break-after: avoid !important;
+    }
+
+    .cjc-ingredients-list,
+    .ingredients ul,
+    .instructions ol {
+        page-break-inside: avoid !important;
+    }
+
+    /* Recipe meta info */
+    .recipe-meta,
+    .recipe-times,
+    .recipe-yield {
+        margin: 8pt 0 !important;
+        font-size: 10pt !important;
+        color: #666 !important;
+    }
+
+    /* Hide scaled styling for print */
+    .cjc-ingredient-item.is-scaled {
+        background: none !important;
+    }
+
+    /* Add recipe source */
+    .entry-content:after {
+        content: "Recipe from CurtisJCooks.com" !important;
+        display: block !important;
+        margin-top: 24pt !important;
+        padding-top: 12pt !important;
+        border-top: 1pt solid #ccc !important;
+        font-size: 10pt !important;
+        color: #666 !important;
+        text-align: center !important;
+    }
+
+    /* Ensure proper page margins */
+    @page {
+        margin: 0.75in !important;
+    }
+
+    /* First page can have smaller top margin */
+    @page :first {
+        margin-top: 0.5in !important;
+    }
+}
